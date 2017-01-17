@@ -46,9 +46,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     genere = parameters.get("genere")
 
-
-    speech = "Te ne racconto una di genere " + genere + ". \n"
-    speech = speech + getWitz(genere)
+    speech = getWitz(genere)
 
 
     print("Response:")

@@ -6,16 +6,18 @@ def getWitz(g):
     # PROCEDURA MAIN recupera un witz
     if g == 'any':
         url = 'http://api.icndb.com/jokes/random'
+        intro = 'Te ne racconto una a caso...\n'
     else:
- #       url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
         url = 'http://api.icndb.com/jokes/random?limitTo=[' + g +']'
+        intro = 'Te ne racconto una  ' + g + ". \n"
         print(url)
 
     r = requests.get(url)
 
     if r.status_code != 200:
         pass
-        witz = 'Non ne ho una da raccontare...'
+        witz = '...'
+        intro = 'Non ne ho una da raccontare...'
     else:
         full_json = r.text
         full = json.loads(full_json)
@@ -25,6 +27,7 @@ def getWitz(g):
     witz = html_decode(witz)
     print ('W:', witz)
 
+    witz = intro + witz
     return witz
 
 # escape decode
