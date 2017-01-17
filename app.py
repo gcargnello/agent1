@@ -10,6 +10,11 @@ from flask import make_response
 app = Flask(__name__)
 
 
+@app.route('/')
+def index():
+    return "<h2>API AI agent<h2>"
+
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -28,6 +33,7 @@ def webhook():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
 
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI
@@ -57,5 +63,4 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print ("Starting app on port %d" % port)
 #    app.run(debug=True, port=port, host='0.0.0.0')
-
     app.run()
