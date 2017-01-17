@@ -45,8 +45,9 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     genere = parameters.get("genere")
 
-#    speech = "Te ne racconto una di genere " + genere
-    speech = getWitz()
+
+    speech = "Te ne racconto una di genere " + genere + ". \n"
+    speech = speech + getWitz(genere)
 
 
     print("Response:")
@@ -61,9 +62,14 @@ def makeWebhookResult(req):
     }
 
 # legge una  barzelletta chcuck
-def getWitz():
-    # PROCEDURA MAIN recupera un witz a caso
-    url = 'http://api.icndb.com/jokes/random'
+def getWitz(g):
+    # PROCEDURA MAIN recupera un witz
+    if g == 'any':
+        url = 'http://api.icndb.com/jokes/random'
+    else:
+        url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
+#        url = 'http://api.icndb.com/jokes/random/?limitTo[' + g +']'
+        print(url)
 
     r = requests.get(url)
 
