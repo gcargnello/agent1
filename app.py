@@ -39,16 +39,22 @@ def webhook():
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI
     yaction = req.get("result").get("action")
-    if yaction != "yGetWitz":
-        return {}
 
     result = req.get("result")
     parameters = result.get("parameters")
     genere = parameters.get("genere")
 
-    speech = getWitz(genere)
+
+#   Gestisce le diverse azioni di API.AI
+    if yaction == "yGetWitz":
+        speech = getWitz(genere)
+    elif yaction == "yStop":
+        speech = 'OK per oggi basta!'
+    else:
+        return {}
 
 
+#   chiude con la restituzione della risposta
     print("Response:")
     print(speech)
 
