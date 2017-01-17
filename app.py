@@ -14,7 +14,6 @@ app = Flask(__name__)
 def index():
     return "<h2>API AI agent<h2>"
 
-
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
