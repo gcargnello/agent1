@@ -23,7 +23,7 @@ def getWitz(g):
         full = json.loads(full_json)
         witz = (full['value']['joke'])
 
-    # togli i cartteri escape
+    # togli i caratteri escape
     witz = html_decode(witz)
     print ('W:', witz)
 
