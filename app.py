@@ -2,7 +2,7 @@
 import json
 import os
 import requests
-from  routines import getWitz
+from  routines import getWitz, getCats
 
 from flask import Flask
 from flask import request
@@ -50,6 +50,9 @@ def makeWebhookResult(req):
         speech = getWitz(genere)
     elif action == "yStop":
         speech = 'OK per oggi basta!'
+    elif action == 'yCats':
+        speech = getCats()
+
     else:
         return {}
 

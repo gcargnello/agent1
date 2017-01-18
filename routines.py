@@ -30,6 +30,32 @@ def getWitz(g):
     witz = intro + witz
     return witz
 
+# legge una massima sui gatti
+def getCats():
+    #
+    url = 'http://catfacts-api.appspot.com/api/facts'
+    intro = 'Se ti piacciono i gatti senti questa...\n'
+
+    print(url)
+    r = requests.get(url)
+
+    if r.status_code != 200:
+        pass
+        fact = '...'
+        intro = 'mmm adesso non mi viene in mente niente...'
+    else:
+        full_json = r.text
+        full = json.loads(full_json)
+        fact = full['facts'][0]
+
+
+    # togli i caratteri escape
+    fact = html_decode(fact)
+    print ('G:', fact)
+
+    fact = intro + fact
+    return fact
+
 # escape decode
 def html_decode(s):
     """
