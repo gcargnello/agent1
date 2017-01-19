@@ -47,10 +47,13 @@ def makeWebhookResult(req):
 
 #   Gestisce le diverse azioni di API.AI
     if action == "yGetWitz":
-        speech = getWitz(genere)
-    elif action == "yStop":
+        speech = getWitz(genere) # legge un witz
+
+    elif action == "yStop": # ci fermiamo
         speech = 'OK per oggi basta!'
-    elif action == 'yCats':
+
+    elif action == 'yCats': # legge una sui gatti
+
         speech = getCats()
 
     else:
@@ -73,6 +76,6 @@ def makeWebhookResult(req):
 # Statement standard Flask per avviamento in localhost
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-    print ("Starting app on port %d" % port)
+#    print ("Starting app on port %d" % port)
 #    app.run(debug=True, port=port, host='0.0.0.0')
     app.run()
