@@ -43,18 +43,18 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     genere = parameters.get("genere")
-
+    user = parameters.get("user")
 
 #   Gestisce le diverse azioni di API.AI
     if action == "yGetWitz":
-        speech = getWitz(genere) # legge un witz
+        speech = getWitz(user,genere) # legge un witz
 
     elif action == "yStop": # ci fermiamo
         speech = 'OK per oggi basta!'
 
     elif action == 'yCats': # legge una sui gatti
 
-        speech = getCats()
+        speech = getCats(user)
 
     else:
         return {}

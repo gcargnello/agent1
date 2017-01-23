@@ -2,14 +2,14 @@ import requests
 import json
 
 # legge una  barzelletta chcuck
-def getWitz(g):
+def getWitz(usr,g):
     # PROCEDURA MAIN recupera un witz
     if g == 'any':
         url = 'http://api.icndb.com/jokes/random'
         intro = 'Te ne racconto una a caso...\n'
     else:
         url = 'http://api.icndb.com/jokes/random?limitTo=[' + g +']'
-        intro = 'Te ne racconto una  ' + g + ". \n"
+        intro = 'OK '+ usr + 'Te ne racconto una  ' + g + ". \n"
         print(url)
 
     r = requests.get(url)
@@ -17,7 +17,7 @@ def getWitz(g):
     if r.status_code != 200:
         pass
         witz = '...'
-        intro = 'Non ne ho una da raccontare...'
+        intro = 'Sorry ' + usr + 'Non ne ho una da raccontare....'
     else:
         full_json = r.text
         full = json.loads(full_json)
@@ -31,10 +31,10 @@ def getWitz(g):
     return witz
 
 # legge una massima sui gatti
-def getCats():
+def getCats(usr):
     #
     url = 'http://catfacts-api.appspot.com/api/facts'
-    intro = 'Se ti piacciono i gatti senti questa...\n'
+    intro = usr + ', se ti piacciono i gatti senti questa...\n'
 
     print(url)
     r = requests.get(url)
@@ -42,7 +42,7 @@ def getCats():
     if r.status_code != 200:
         pass
         fact = '...'
-        intro = 'mmm adesso non mi viene in mente niente...'
+        intro = 'mi dispiace ' + usr + 'mmm adesso non mi viene in mente niente...'
     else:
         full_json = r.text
         full = json.loads(full_json)
