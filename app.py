@@ -37,7 +37,7 @@ def webhook():
 
 
 def makeWebhookResult(req):
-#   controllo della azione determinata dalla richiesta API.AI
+#   controllo della azione determinata dalla richiesta API.AI.
     action = req.get("result").get("action")
 
     result = req.get("result")
