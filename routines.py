@@ -108,7 +108,7 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
 #        a3 = a3 + ' w:' + t['ItemListServiceRequestExecutionLifeCycleStatusCodeText']
         a3 = a3 + '\n'
 
-    print (a3)
+#    print (a3)
 
     if a3 == '':  # non ci sono ticket
         a4 = 'Mi dispiace non ho trovato nessun ticket per i criteri indicati.'
