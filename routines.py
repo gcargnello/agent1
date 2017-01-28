@@ -78,6 +78,7 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
     top = q + order + '$inlinecount=allpages&$skip=0&$top=' + str(Nu) + '&'
     query = '$filter=CustomerID eq ' + '\'' + Id + '\''
     query = query + ' and ServicePriorityCode eq ' + '\'' + Pr + '\''
+    query = query + ' and ServiceRequestLifeCycleStatusCode eq ' + '\'' + St + '\''
     # query = '$count'
     frm = '&$format=json'
 
@@ -108,7 +109,6 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
         a3 = a3 + '\n'
 
     print (a3)
-
 
     a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
 
