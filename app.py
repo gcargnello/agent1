@@ -61,14 +61,15 @@ def makeWebhookResult(req):
         CustomerID = parameters.get("CustomerID")
         Priority = parameters.get("Priority")
         Status = parameters.get("Status")
+        nmax = parameters.get("nmax")
 
-        speech = getTicketsbyCustomerStatusPrio(CustomerID,Priority,Status)
+        speech = getTicketsbyCustomerStatusPrio(CustomerID,Priority,Status,nmax)
     else:
         return {}
 
 
 #   chiude con la restituzione della risposta
-    print("Response:")
+
     print(speech)
 
     return {
@@ -76,7 +77,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "Agent1"
+        "source": "C4C Demo"
     }
 
 

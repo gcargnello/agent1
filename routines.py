@@ -58,25 +58,26 @@ def getCats(usr):
 
 
 # legge una massima sui gatti
-def getTicketsbyCustomerStatusPrio(Id,Pr,St):
+def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
     #
     hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE='}
     url = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection/'
     intro = ''
 
-    clie = Id
-    prio = Pr
-    if prio == '':
-        prio = '*'
+ #   stabilisce default per parametri indefiniti
+    if Pr == '':
+        Pr= '*'
     if St == '':
-        Stat = '*'
+        St= '*'
+    if Nu == '':
+        Nu = 10
 
 #   build query
     q = '?'
     order = '$orderby=ID desc&'
-    top = q + order + '$inlinecount=allpages&$skip=0&$top=10&'
-    query = '$filter=CustomerID eq ' + '\'' + clie + '\''
-    query = query + ' and ServicePriorityCode eq ' + '\'' + prio + '\''
+    top = q + order + '$inlinecount=allpages&$skip=0&$top=' + str(Nu) + '&'
+    query = '$filter=CustomerID eq ' + '\'' + Id + '\''
+    query = query + ' and ServicePriorityCode eq ' + '\'' + Pr + '\''
     # query = '$count'
     frm = '&$format=json'
 
@@ -94,7 +95,7 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St):
         full_json = r.text
         full = json.loads(full_json)
         a1 = full['d']
-        c = a1['__count']
+        cn = a1['__count']
         a2 = a1['results']
 
 
@@ -105,13 +106,13 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St):
         a3 = a3 + ' w:' + t['ItemListServiceRequestExecutionLifeCycleStatusCodeText']
         a3 = a3 + '\n'
 
-
+    a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
 
     # togli i caratteri escape
 #    fact = html_decode(fact)
-    print ('C4C:', a3)
+    print ('C4C:', a4)
 
-    return a3
+    return a4
 
 
 # escape decode
