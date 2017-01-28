@@ -110,7 +110,12 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
 
     print (a3)
 
-    a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
+    if cn == 0:
+        a4 = 'Mi dispiace non ho trovato nessun ticket per i criteri indicati.'
+    elif len(a2) >= cn: #
+        a4 = 'Ho trovato ' + str(cn) + ' tickets. Eccoli:\n' + a3
+    else:
+        a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
 
     # togli i caratteri escape
 #    fact = html_decode(fact)
