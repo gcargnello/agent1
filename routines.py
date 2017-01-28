@@ -164,7 +164,7 @@ def getTicketbyID(Id):
 #    print (a3)
 
     if a3 == '':  # non ci sono ticket
-        a4 = 'Mi dispiace non ho trovato il ticket' + Id
+        a4 = 'Mi dispiace non ho trovato il ticket ' + Id
     else:
         a4 = a3
 
