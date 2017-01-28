@@ -57,7 +57,7 @@ def getCats(usr):
     return fact
 
 
-# legge una massima sui gatti
+# legge
 def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
     #
     hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE='}
@@ -123,6 +123,56 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
 
     return a4
 
+def getTicketbyID(Id):
+    #
+    hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE='}
+    url = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection/'
+    intro = ''
+
+#   build query
+    q = '?'
+#    order = '$orderby=ID desc&'
+    query = q + '$filter=ID eq ' + '\'' + Id + '\''
+    frm = '&$format=json'
+
+
+    url = url + query + frm
+    print(url)
+    r = requests.get(url, headers=hdr)
+
+    if r.status_code != 200:
+        pass
+        fact = '...'
+        intro = 'mi dispiace in questo momento non riesco a rispondere...'
+        print (intro)
+    else:
+        full_json = r.text
+        full = json.loads(full_json)
+        print (full)
+        a1 = full['d']
+        a2 = a1['results']
+
+    a3 = ''
+    for t in a2:
+        a3 = a3 + t['ID'] + ' ' + t['Name']['content'] + '-' + t['ServicePriorityCodeText'] #+ t['ServicePriorityCode']
+        a3 = a3 + '-' + t['CustomerID'] + ':' + t['Customer']
+#        a3 = a3 + '-uuid:' + t['ObjectID'] + '-' + t['ServiceRequestLifeCycleStatusCodeText']
+        a3 = a3 + '-' + t['ServiceRequestLifeCycleStatusCodeText']
+#        a3 = a3 + ' w:' + t['ItemListServiceRequestExecutionLifeCycleStatusCodeText']
+        a3 = a3 + '\n'
+
+#    print (a3)
+
+    if a3 == '':  # non ci sono ticket
+        a4 = 'Mi dispiace non ho trovato il ticket' + Id
+    else:
+        a4 = a3
+
+    # togli i caratteri escape
+#    fact = html_decode(fact)
+    print ('C4C:', a4)
+
+    return a4
 
 # escape decode
 def html_decode(s):

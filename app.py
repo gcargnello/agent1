@@ -2,7 +2,7 @@
 import json
 import os
 import requests
-from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio
+from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID
 
 from flask import Flask
 from flask import request
@@ -64,6 +64,11 @@ def makeWebhookResult(req):
         nmax = parameters.get("nmax")
 
         speech = getTicketsbyCustomerStatusPrio(CustomerID,Priority,Status,nmax)
+    elif action == 'yGetTkbyID':
+        TicketID = parameters.get("TicketID")
+
+        speech = getTicketbyID(TicketID)
+
     else:
         return {}
 
