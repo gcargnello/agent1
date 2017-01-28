@@ -70,6 +70,7 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St):
         prio = '*'
     if St == '':
         Stat = '*'
+
 #   build query
     q = '?'
     order = '$orderby=ID desc&'
