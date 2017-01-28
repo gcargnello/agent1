@@ -98,14 +98,17 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
         cn = a1['__count']
         a2 = a1['results']
 
-
+    a3 = ''
     for t in a2:
-        a3 = t['ID'] + ' ' + t['Name']['content'] + '-' + t['ServicePriorityCodeText'] #+ t['ServicePriorityCode']
+        a3 = a3 + t['ID'] + ' ' + t['Name']['content'] + '-' + t['ServicePriorityCodeText'] #+ t['ServicePriorityCode']
         a3 = a3 + '-' + t['CustomerID'] + ':' + t['Customer']
 #        a3 = a3 + '-uuid:' + t['ObjectID'] + '-' + t['ServiceRequestLifeCycleStatusCodeText']
-        a3 = a3 + t['ServiceRequestLifeCycleStatusCodeText']
+        a3 = a3 + '-' + t['ServiceRequestLifeCycleStatusCodeText']
 #        a3 = a3 + ' w:' + t['ItemListServiceRequestExecutionLifeCycleStatusCodeText']
         a3 = a3 + '\n'
+
+    print (a3)
+
 
     a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
 
