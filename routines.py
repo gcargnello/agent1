@@ -110,9 +110,9 @@ def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
 
     print (a3)
 
-    if cn == 0:  # non ci sono ticket
+    if a3 == '':  # non ci sono ticket
         a4 = 'Mi dispiace non ho trovato nessun ticket per i criteri indicati.'
-    elif len(a2) >= cn: # ci sono e li ho elencati tutti
+    elif len(a2) >= cn:     # ci sono e li ho elencati tutti
         a4 = 'Ho trovato ' + str(cn) + ' tickets. Eccoli:\n' + a3
     else:
         a4 = 'Ho trovato ' + str(cn)  + ' tickets. Ecco gli ultimi ' + str(len(a2)) + ':\n' + a3
