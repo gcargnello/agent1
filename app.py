@@ -2,7 +2,7 @@
 import json
 import os
 import requests
-from  routines import getWitz, getCats
+from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio
 
 from flask import Flask
 from flask import request
@@ -42,20 +42,28 @@ def makeWebhookResult(req):
 
     result = req.get("result")
     parameters = result.get("parameters")
-    genere = parameters.get("genere")
-    user = parameters.get("user")
+
 
 #   Gestisce le diverse azioni di API.AI
     if action == "yGetWitz":
+        genere = parameters.get("genere")
+        user = parameters.get("user")
         speech = getWitz(user,genere) # legge un witz
 
     elif action == "yStop": # ci fermiamo
+
         speech = 'OK per oggi basta!'
 
     elif action == 'yCats': # legge una sui gatti
-
+        user = parameters.get("user")
         speech = getCats(user)
+#   azioni C4C
+    elif action == 'yGetTkbyCust':
+        CustomerID = parameters.get("CustomerID")
+        Priority = parameters.get("Priority")
+        Status = parameters.get("Status")
 
+        speech = getTicketsbyCustomerStatusPrio(CustomerID,Priority,Status)
     else:
         return {}
 
