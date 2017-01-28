@@ -35,7 +35,6 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI.
     action = req.get("result").get("action")
