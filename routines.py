@@ -161,7 +161,23 @@ def getTicketbyID(Id):
 #        a3 = a3 + ' w:' + t['ItemListServiceRequestExecutionLifeCycleStatusCodeText']
         a3 = a3 + '\n'
 
-#    print (a3)
+#       la descrizione
+        d1 = t['ServiceRequestDescription']['__deferred']['uri']
+        url_d = d1 + '?' + frm
+        rd = requests.get(url_d, headers=hdr)
+        if r.status_code != 200:
+           pass
+           fact = '...'
+           intro = 'Problema oon la descrizione...'
+           print (intro)
+        else:
+          full_json = rd.text
+          full = json.loads(full_json)
+          d2 = full['d']['results'][0]['Text']
+          a3 = a3 + d2 + '\''
+
+
+    #    print (a3)
 
     if a3 == '':  # non ci sono ticket
         a4 = 'Mi dispiace non ho trovato il ticket ' + Id
