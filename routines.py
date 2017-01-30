@@ -173,8 +173,12 @@ def getTicketbyID(Id):
         else:
           full_json = rd.text
           full = json.loads(full_json)
-          d2 = full['d']['results'][0]['Text']
-          a3 = a3 + d2 + '\''
+          try:
+             d2 = full['d']['results'][0]['Text']
+             a3 = a3 + d2 + '\''
+          except:
+              pass
+
 
 
     #    print (a3)
