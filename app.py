@@ -72,7 +72,12 @@ def makeWebhookResult(req):
 
     elif action == 'yPutTicket':
 
-        speech = putTicket()
+        CustomerID = '10005'
+        Priority = '2'
+        Name = 'Phyton Ticket!'
+        Description = 'lorem ipsum'
+
+        speech = putTicket(CustomerID,Priority,Name,Description)
     else:
         return {}
 

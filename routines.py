@@ -197,9 +197,9 @@ def getTicketbyID(Id):
 
 
 ##################################################################
-def putTicket():
+def putTicket(Id,Pr,Nm,Ds):
     # C4C demo Exprivia
-    print('PUT TICKET')
+
     url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/'
     hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=', 'x-csrf-token': 'fetch'}
 
@@ -224,21 +224,19 @@ def putTicket():
     print('HDR:', headers)
 
     # prepariamo i dati del ticket
+
     payload = {
         "ProcessingTypeCode": "SRRQ",
         "DataOriginTypeCode": "4",
-        "CustomerID": "1001000",
-        "ProductID": "IOT00001",
+        "CustomerID": Id,
         "SerialID": "IOT12345",
-        "ServicePriorityCode": "1",
-        "ServiceIssueCategoryID": "OS",
-        "IncidentServiceIssueCategoryID": "OS-OS",
+        "ServicePriorityCode": Pr,
         "Name": {
             "__metadata": {
                 "type": "c4codata.EXTENDED_Name"
             },
             "languageCode": "I",
-            "content": "PYTHON-New Ticket Created"
+            "content": Nm
         }
     }
     # posta richiesta creazione ticket
