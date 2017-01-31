@@ -240,6 +240,24 @@ def putTicket(Id,Pr,Nm,Ds):
         }
     }
 
+    payload = {
+	"ProcessingTypeCode": "SRRQ",
+    "DataOriginTypeCode": "4",
+    "CustomerID" : "1001000",
+    "ProductID": "IOT00001",
+    "SerialID": "IOT12345",
+    "ServicePriorityCode": "1",
+    "ServiceIssueCategoryID": "OS",
+     "IncidentServiceIssueCategoryID": "OS-OS",
+           "Name": {
+                "__metadata": {
+                  "type": "c4codata.EXTENDED_Name"
+                },
+                "languageCode": "I",
+                "content": "PYTHON-New Ticket Created heroku"
+              }
+}
+
     print (payload)
     # posta richiesta creazione ticket
     req = requests.post(url_c4c,
