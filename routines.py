@@ -239,6 +239,8 @@ def putTicket(Id,Pr,Nm,Ds):
             "content": Nm
         }
     }
+
+    print (payload)
     # posta richiesta creazione ticket
     req = requests.post(url_c4c,
                         data=json.dumps(payload),
