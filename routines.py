@@ -212,7 +212,7 @@ def putTicket(Id,Pr,Nm,Ds):
     else:
         tkn = req.headers.get('x-csrf-token')
         print ('TOKEN:', tkn)
-    tkn = 'VocREGyshjlDUllmgGw-qw=='
+#    tkn = 'VocREGyshjlDUllmgGw-qw=='
 
     # adesso creiamo un ticket di prova
     headers = {
