@@ -200,6 +200,7 @@ def getTicketbyID(Id):
 def putTicket(Id,Pr,Nm,Ds):
     # C4C demo Exprivia
 
+#   url per fetch del token
     url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/'
     hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=', 'x-csrf-token': 'fetch'}
 
@@ -210,8 +211,8 @@ def putTicket(Id,Pr,Nm,Ds):
         tkn = ''
     else:
         tkn = req.headers.get('x-csrf-token')
-#        print ('TOKEN:', tkn)
-    # tkn = 'KM63AeqzcGMiT05GRRkMtg=='
+        print ('TOKEN:', tkn)
+    tkn = 'VocREGyshjlDUllmgGw-qw=='
 
     # adesso creiamo un ticket di prova
     headers = {
@@ -258,6 +259,8 @@ def putTicket(Id,Pr,Nm,Ds):
               }
 }
 
+# URL dei ticket
+    url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection'
     # posta richiesta creazione ticket
     req = requests.post(url_c4c,
                         data=json.dumps(payload),
