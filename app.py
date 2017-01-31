@@ -2,7 +2,7 @@
 import json
 import os
 import requests
-from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID
+from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID, putTicket
 
 from flask import Flask
 from flask import request
@@ -38,6 +38,7 @@ def webhook():
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI.
     action = req.get("result").get("action")
+#    print ('ACTION:',action)
 
     result = req.get("result")
     parameters = result.get("parameters")
@@ -69,6 +70,9 @@ def makeWebhookResult(req):
 
         speech = getTicketbyID(TicketID)
 
+    elif action == 'yPutTicket':
+
+        speech = putTicket()
     else:
         return {}
 
@@ -80,7 +84,9 @@ def makeWebhookResult(req):
     return {
         "speech": speech,
         "displayText": speech,
-        #"data": {},
+        "data": {
+
+                },
         # "contextOut": [],
         "source": "C4C Demo"
     }
