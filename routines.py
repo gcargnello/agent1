@@ -210,7 +210,7 @@ def putTicket(Id,Pr,Nm,Ds):
         tkn = ''
     else:
         tkn = req.headers.get('x-csrf-token')
-        print ('TOKEN:', tkn)
+#        print ('TOKEN:', tkn)
     # tkn = 'KM63AeqzcGMiT05GRRkMtg=='
 
     # adesso creiamo un ticket di prova
@@ -221,7 +221,7 @@ def putTicket(Id,Pr,Nm,Ds):
                 'Accept': 'application/json'
                }
 
-    print('HDR:', headers)
+#    print('HDR:', headers)
 
     # prepariamo i dati del ticket
 
@@ -258,13 +258,13 @@ def putTicket(Id,Pr,Nm,Ds):
               }
 }
 
-    print (payload)
     # posta richiesta creazione ticket
     req = requests.post(url_c4c,
                         data=json.dumps(payload),
                         headers=headers
                         )
 
+    print (json.dumps(payload))
     if req.status_code != 200:
         print('Errore di connessione a C4C', req.status_code, ":", req.content)
         print(req.headers.get('x-csrf-token'))
