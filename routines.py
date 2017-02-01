@@ -260,11 +260,11 @@ def putTicket(Id,Pr,Nm,Ds):
 }
 
 # URL dei ticket
-    url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection'
+    url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection/'
     # posta richiesta creazione ticket
     req = requests.post(url_c4c,
+                        headers=headers,
                         data=json.dumps(payload),
-                        headers=headers
                         )
 
     print (json.dumps(payload))

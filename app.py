@@ -96,6 +96,76 @@ def makeWebhookResult(req):
         "source": "C4C Demo"
     }
 
+# TEST crea ticket
+@app.route('/tkput', methods=['POST'])
+def tkput():
+
+    # C4C demo Exprivia
+    url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection'
+    # hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=','x-csrf-token':'fetch'}
+    hdr = {
+        'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=',
+        'Content-Type': 'application/json',
+        'cache-control': 'no-cache',
+        'x-csrf-token': 'fetch',
+        'Accept': 'application/json'
+    }
+
+    # leggiamo il token
+    req = requests.get(url_c4c, headers=hdr)
+    if req.status_code != 200:
+        print('Impossibile leggere il token', req.status_code)
+        tkn = ''
+    else:
+        #    print ('RH:',req.headers)
+        tkn = str(req.headers.get('x-csrf-token'))
+        #    tkn = 'jP5tMqxSSkbRB9M-FNp7XQ=='
+        print ('TOKEN:', tkn)
+
+    # adesso creiamo un ticket di prova
+    headers = {
+        'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=',
+        'Content-Type': 'application/json',
+        'cache-control': 'no-cache',
+        'x-csrf-token': tkn,
+        'Accept': 'application/json'
+    }
+
+    print('HDR:', headers)
+
+    # prepariamo i dati del ticket
+    payload = {
+        "ProcessingTypeCode": "SRRQ",
+        "DataOriginTypeCode": "4",
+        "CustomerID": "1001000",
+        "ProductID": "IOT00001",
+        "SerialID": "IOT12345",
+        "ServicePriorityCode": "1",
+        "ServiceIssueCategoryID": "OS",
+        "IncidentServiceIssueCategoryID": "OS-OS",
+        "Name": {
+            "__metadata": {
+                "type": "c4codata.EXTENDED_Name"
+            },
+            "languageCode": "I",
+            "content": "PYTHON-New Ticket Created"
+        }
+    }
+
+    url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection'
+    # posta richiesta creazione ticket
+    req = requests.post(url_c4c,
+                        data=json.dumps(payload),
+                        headers=headers
+                        )
+
+    if req.status_code != 200:
+        print('Errore di connessione a C4C', req.status_code, ":", req.content)
+        print(req.headers.get('x-csrf-token'))
+    else:
+        print(req.url)
+
+    return req.status_code
 
 # Statement standard Flask per avviamento in localhost
 if __name__ == '__main__':
