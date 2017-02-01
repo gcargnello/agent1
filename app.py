@@ -118,7 +118,7 @@ def tkput():
         tkn = ''
     else:
         #    print ('RH:',req.headers)
-        tkn = str(req.headers.get('x-csrf-token'))
+        tkn = req.headers.get('x-csrf-token')
         #    tkn = 'jP5tMqxSSkbRB9M-FNp7XQ=='
         print ('TOKEN:', tkn)
 
@@ -165,7 +165,7 @@ def tkput():
     else:
         print(req.url)
 
-    return req.status_code
+    return "<h2>Ticket Create<h2>"
 
 # Statement standard Flask per avviamento in localhost
 if __name__ == '__main__':
