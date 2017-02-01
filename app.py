@@ -119,7 +119,7 @@ def tkput():
     else:
         #    print ('RH:',req.headers)
         tkn = req.headers.get('x-csrf-token')
-        #    tkn = 'jP5tMqxSSkbRB9M-FNp7XQ=='
+        tkn = 'jP5tMqxSSkbRB9M-FNp7XQ=='
         print ('TOKEN:', tkn)
 
     # adesso creiamo un ticket di prova
