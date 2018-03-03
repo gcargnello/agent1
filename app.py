@@ -8,7 +8,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
-# Flask app should start in global layout.
+# Flask app should start in global layout..
 app = Flask(__name__)
 
 
