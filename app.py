@@ -9,6 +9,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+global machineAlert
 
 # Flask app should start in global layout..
 app = Flask(__name__)
