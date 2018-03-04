@@ -1,7 +1,7 @@
 import requests
 import json
 
-
+global machineAlert
 
 # legge una  barzelletta chcuck
 def getWitz(usr,g):
