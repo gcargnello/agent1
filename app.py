@@ -59,6 +59,7 @@ def alert():
 
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI.
+    global machineAlert
     action = req.get("result").get("action")
 #    print ('ACTION:',action)
 
