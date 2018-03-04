@@ -105,8 +105,13 @@ def makeWebhookResult(req):
 
     elif action == 'yAlarm1':
 
-#        speech = getAlarm1()
+        return {"followupEvent": {"name": "E_Machine_Alert2", "data": {}}}
+
+    elif action == 'yAlarm2':
+
         speech = machineAlert
+        if speech = '...':
+            return { "followupEvent": {"name": "E_Machine_Alert2","data": {}}}
 
     else:
         return {}
@@ -120,11 +125,10 @@ def makeWebhookResult(req):
         "speech": speech,
         "displayText": speech,
         "data": {
-
                 },
         # "contextOut": [],
-        "source": "C4C Demo"
-    }
+        "source": "Chatbot Demo FD4DI"
+        }
 
 # TEST crea ticket
 @app.route('/tkput', methods=['POST'])
