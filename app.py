@@ -9,6 +9,8 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+global machineAlert
+
 # Flask app should start in global layout..
 app = Flask(__name__)
 
@@ -38,6 +40,7 @@ def webhook():
 
 @app.route('/alert', methods=['POST'])
 def alert():
+    global machineAlert
     req = request.get_json(silent=True, force=True)
 
 #   Stampa il JSON di richiesta
@@ -47,8 +50,10 @@ def alert():
     r = req.get("text")
 
 #    sId = '1c081760-23bf-4ef2-845f-c8d45cbc1514'
+    machineAlert = "Experiencing now some issues..."
     sId = '@FD4DIbot'
-    r = sendEvent(sId)
+#    r = sendEvent(sId)
+    r = machineAlert
 
     return r
 

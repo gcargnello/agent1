@@ -1,6 +1,8 @@
 import requests
 import json
 
+
+
 # legge una  barzelletta chcuck
 def getWitz(usr,g):
     # PROCEDURA MAIN recupera un witz
@@ -82,9 +84,10 @@ def sendEvent(sId):
     return r
 
 def getAlarm1():
+    global machineAlert
     # recupera il msg di allarme
 
-    r = 'I am getting a problem on pressure level'
+    r = machineAlert
 
     return r
 
