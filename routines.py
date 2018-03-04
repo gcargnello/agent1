@@ -82,7 +82,7 @@ def sendEvent(sId):
 
     return r
 
-def getAlarm1(r):
+def getAlarm1():
     global machineAlert
 
     r = machineAlert
