@@ -102,7 +102,8 @@ def makeWebhookResult(req):
 
     elif action == 'yAlarm1':
 
-        speech = getAlarm1()
+#        speech = getAlarm1()
+        speech = machineAlert
 
     else:
         return {}
