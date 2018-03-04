@@ -46,7 +46,7 @@ def alert():
     r = 'OK'
     r = req.get("text")
 
-    sId = '12345'
+    sId = '1c081760-23bf-4ef2-845f-c8d45cbc1514'
     r = sendEvent(sId)
 
     return r
