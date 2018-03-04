@@ -1,7 +1,6 @@
 import requests
 import json
 
-global machineAlert
 
 # legge una  barzelletta chcuck
 def getWitz(usr,g):
@@ -83,9 +82,8 @@ def sendEvent(sId):
 
     return r
 
-def getAlarm1():
+def getAlarm1(r):
     global machineAlert
-    # recupera il msg di allarme
 
     r = machineAlert
 
