@@ -49,11 +49,9 @@ def alert():
 #   Stampa il JSON di richiesta
     print("Request:")
     print(json.dumps(req, indent=4))
-    r = 'OK'
-    r = req.get("text")
 
 #    sId = '1c081760-23bf-4ef2-845f-c8d45cbc1514'
-    machineAlert = "Experiencing now some issues..."
+    machineAlert = req.get("text")
     sId = '@FD4DIbot'
 #    r = sendEvent(sId)
     r = machineAlert
