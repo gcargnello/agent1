@@ -21,6 +21,8 @@ def index():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    global machineAlert
+
     req = request.get_json(silent=True, force=True)
 
 #   Stampa il JSON di richiesta
