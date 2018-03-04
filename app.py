@@ -97,11 +97,6 @@ def makeWebhookResult(req):
 
     elif action == 'yAlarm1':
 
-        CustomerID = '10005'
-        Priority = '2'
-        Name = 'Phyton Ticket!'
-        Description = 'lorem ipsum'
-
         speech = getAlarm1()
 
     else:
