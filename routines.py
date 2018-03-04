@@ -57,6 +57,38 @@ def getCats(usr):
     return fact
 
 
+def sendEvent(sId):
+    # lancia un evento DialogFlow
+
+    hdr = {
+        'Authorization': 'Bearer 569c091c1458408a83e99c04e79888f7'
+        }
+
+    url = 'http://api.icndb.com/jokes/random'
+    url = "https://api.dialogflow.com/v1//query?v=20170712&e=E_Machine_Alert1&sessionId="
+    sessionID = sId
+    url = url + sessionID + "&lang=en"
+
+
+    r = requests.get(url, headers=hdr)
+
+    if r.status_code != 200:
+        pass
+        r = 'KO'
+    else:
+        full_json = r.text
+        full = json.loads(full_json)
+        r = (full['result']['resolvedQuery'])
+
+    return r
+
+def getAlarm1():
+    # recupera il msg di allarme
+
+    r = 'I am getting a problem on pressure level'
+
+    return r
+
 # legge
 def getTicketsbyCustomerStatusPrio(Id,Pr,St,Nu):
     #

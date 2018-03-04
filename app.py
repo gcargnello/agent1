@@ -3,6 +3,7 @@ import json
 import os
 import requests
 from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID, putTicket
+from  routines import sendEvent, getAlarm1
 
 from flask import Flask
 from flask import request
@@ -14,7 +15,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h2>API AI agent<h2>"
+    return "<h2>DialogFlow Agent<h2>"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -33,6 +34,21 @@ def webhook():
     print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
+    return r
+
+@app.route('/alert', methods=['POST'])
+def alert():
+    req = request.get_json(silent=True, force=True)
+
+#   Stampa il JSON di richiesta
+    print("Request:")
+    print(json.dumps(req, indent=4))
+    r = 'OK'
+    r = req.get("text")
+
+    sId = '12345'
+    r = sendEvent(sId)
+
     return r
 
 def makeWebhookResult(req):
@@ -78,6 +94,16 @@ def makeWebhookResult(req):
         Description = 'lorem ipsum'
 
         speech = putTicket(CustomerID,Priority,Name,Description)
+
+    elif action == 'yAlarm1':
+
+        CustomerID = '10005'
+        Priority = '2'
+        Name = 'Phyton Ticket!'
+        Description = 'lorem ipsum'
+
+        speech = getAlarm1()
+
     else:
         return {}
 
@@ -100,7 +126,7 @@ def makeWebhookResult(req):
 @app.route('/tkput', methods=['POST'])
 def tkput():
 
-    # C4C demo Exprivia
+    # C4C demo
     url_c4c = 'https://my307032.crm.ondemand.com/sap/c4c/odata/v1/c4codata/ServiceRequestCollection'
     # hdr = {'Authorization': 'Basic c2VydmljZWFkbWluMDE6ZXhwcml2aWE=','x-csrf-token':'fetch'}
     hdr = {
