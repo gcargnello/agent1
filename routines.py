@@ -64,7 +64,6 @@ def sendEvent(sId):
         'Authorization': 'Bearer 569c091c1458408a83e99c04e79888f7'
         }
 
-    url = 'http://api.icndb.com/jokes/random'
     url = "https://api.dialogflow.com/v1//query?v=20170712&e=E_Machine_Alert1&sessionId="
     sessionID = sId
     url = url + sessionID + "&lang=en"

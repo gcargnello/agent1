@@ -46,7 +46,8 @@ def alert():
     r = 'OK'
     r = req.get("text")
 
-    sId = '1c081760-23bf-4ef2-845f-c8d45cbc1514'
+#    sId = '1c081760-23bf-4ef2-845f-c8d45cbc1514'
+    sId = '@FD4DIbot'
     r = sendEvent(sId)
 
     return r
