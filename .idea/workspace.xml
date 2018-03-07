@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a211e7c-c94d-4061-a5bb-27ec41c1547c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -316,13 +315,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484607382880</updated>
-    </task>
-    <task id="LOCAL-00032" summary="update">
-      <created>1485629057693</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1485629057693</updated>
     </task>
     <task id="LOCAL-00033" summary="update">
       <created>1485637277432</created>
@@ -660,7 +652,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520203303880</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="update">
+      <created>1520457447628</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1520457447629</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="ToolWindowManager">
