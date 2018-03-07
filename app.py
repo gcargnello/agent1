@@ -110,8 +110,8 @@ def makeWebhookResult(req):
     elif action == 'yAlarm2':
 
         speech = machineAlert
-        if speech == '...':
-            return { "followupEvent": {"name": "E_Machine_Alert2","data": {}}}
+#        if speech == '...':
+#            return { "followupEvent": {"name": "E_Machine_Alert2","data": {}}}
 
     else:
         return {}
