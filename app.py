@@ -83,11 +83,11 @@ def recast():
     print(req)
 
 
-    s = req.get("language")
+    s = req["source"]
 
     print(s)
 
-    reply = 'you said ' + str(s)
+    reply = 'you said ' + s
 
     reply = reply + ', I say ' + 'ok'
 
