@@ -85,7 +85,7 @@ def recast():
     print(json.dumps(r1, indent=4))
 
 
-    s = req['source']
+    s = req['nlp']['source']
 
     print(s)
 
