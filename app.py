@@ -80,10 +80,11 @@ def recast():
 
     r = request.get_json(silent=True, force=True)
 
-    print(r['source'])
+#    print(r['source'])
 
+    reply ='Listen'
+#    reply = 'you said ' + r['source']
 
-    reply = 'you said ' + r['source']
     reply = reply + ', I say ' + 'ok'
 
 
