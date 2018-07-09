@@ -83,8 +83,8 @@ def recast():
     print("Request:")
     print(json.dumps(req, indent=4))
 
+    s = req['source']
 
-    s = req.get("source")
     print(s)
 
     reply = 'you said ' + str(s)
