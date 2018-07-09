@@ -108,8 +108,8 @@ def recast():
                 'content': '..that is all'
             },
             {
-                type: 'video',
-                content: 'https://www.youtube.com/watch?v=SSlTnxC1MFg',
+                'type': 'video',
+                'content': 'https://www.youtube.com/watch?v=SSlTnxC1MFg'
             }
         ],
         conversation={
