@@ -2,12 +2,14 @@
 import json
 import os
 import requests
+
 from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID, putTicket
 from  routines import sendEvent, getAlarm1, sendSlack
 
 from flask import Flask
 from flask import request
 from flask import make_response
+from flask import jsonify
 
 global machineAlert
 machineAlert = '...'
@@ -76,9 +78,9 @@ def slack():
 @app.route('/recast', methods=['POST'])
 def recast():
 
-    r = request.get_json(silent=True, force=True)
+#   r = request.get_json(silent=True, force=True)
 
-    print(json.loads(request.get_data()))
+#    print(json.loads(request.get_data()))
     return jsonify(
         status=200,
         replies=[{
@@ -90,7 +92,7 @@ def recast():
         }
     )
 
-    return r
+    return 0
 
 
 def makeWebhookResult(req):
