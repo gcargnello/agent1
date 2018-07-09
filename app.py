@@ -95,6 +95,10 @@ def recast():
             {
             'type': 'text',
             'content': reply
+            },
+            {
+                'type': 'text',
+                'content': 'that is all'
             }
         ],
         conversation={
