@@ -81,9 +81,10 @@ def recast():
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
-    print(json.dumps(req, indent=4))
+    jd = json.dumps(req, indent=4)
+    print(jd)
 
-    s = req['source']
+    s = req.get("language")
 
     print(s)
 
