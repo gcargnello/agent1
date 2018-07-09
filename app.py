@@ -80,12 +80,17 @@ def recast():
 
     r = request.get_json(silent=True, force=True)
 
-#    print(r['source'])
+    print("Request:")
+    print(json.dumps(r, indent=4))
 
-    reply ='Listen'
-#    reply = 'you said ' + r['source']
+
+    s= r.get('source')
+    print(s)
+    reply = 'you said ' + s
 
     reply = reply + ', I say ' + 'ok'
+
+
 
 
 #   print(json.loads(request.get_data()))
@@ -96,7 +101,11 @@ def recast():
             {
                 'type': 'text',
                 'content': reply
-                }
+            },
+            {
+                'type': 'text',
+                'content': '..that is all'
+            }
         ],
         conversation={
             'memory': {'key': 'value'}
