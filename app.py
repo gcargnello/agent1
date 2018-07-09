@@ -93,13 +93,9 @@ def recast():
         replies=
         [
             {
-            'type': 'text',
-            'content': reply
-            },
-            {
                 'type': 'text',
-                'content': 'that is all'
-            }
+                'content': reply
+                }
         ],
         conversation={
             'memory': {'key': 'value'}
