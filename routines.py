@@ -82,6 +82,61 @@ def sendEvent(sId):
 
     return r
 
+def sendSlack(msg):
+# lancia un msg slack
+
+    hdr = {
+        'Content-type': 'application\json'
+        }
+
+    bot = 'apiai_bot'
+    payload = {
+            'text' : msg
+           }
+
+
+    payload = {
+           "text": "Houston, we have a problem",
+           "attachments": [
+        {
+            "text": "what to do?",
+            "fallback": "please tell me what to do",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "option",
+                    "text": "check alert",
+                    "type": "button",
+                    "value": "check"
+                },
+                {
+                    "name": "option",
+                    "text": "Ignore",
+                    "type": "button",
+                    "value": "ignore"
+                }
+                ]
+            }
+             ]
+            }
+
+#   machine1
+    url = "https://hooks.slack.com/services/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"
+#   api-ai
+#    url = "https://hooks.slack.com/services/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"
+
+    r = requests.post(url, headers=hdr, data=json.dumps(payload))
+
+    if r.status_code != 200:
+        pass
+        r = 'KO'
+    else:
+        r = 'OK'
+
+    return r
+
 def getAlarm1():
     global machineAlert
 

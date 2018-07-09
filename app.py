@@ -3,7 +3,7 @@ import json
 import os
 import requests
 from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID, putTicket
-from  routines import sendEvent, getAlarm1
+from  routines import sendEvent, getAlarm1, sendSlack
 
 from flask import Flask
 from flask import request
@@ -57,6 +57,41 @@ def alert():
     r = machineAlert
 
     return r
+
+@app.route('/slack', methods=['POST'])
+def slack():
+    global machineAlert
+    req = request.get_json(silent=True, force=True)
+
+#   Stampa il JSON di richiesta
+    print("Request:")
+    print(json.dumps(req, indent=4))
+
+    machineAlert = req.get("text")
+    r = sendSlack(machineAlert)
+
+    return r
+
+
+@app.route('/recast', methods=['POST'])
+def recast():
+
+    r = request.get_json(silent=True, force=True)
+
+    print(json.loads(request.get_data()))
+    return jsonify(
+        status=200,
+        replies=[{
+            'type': 'text',
+            'content': 'Roger that',
+        }],
+        conversation={
+            'memory': {'key': 'value'}
+        }
+    )
+
+    return r
+
 
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI.
