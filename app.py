@@ -86,8 +86,8 @@ def recast():
 
     s = req.get("source")
     print(s)
-    s = '...'
-    reply = 'you said ' + s
+
+    reply = 'you said ' + str(s)
 
     reply = reply + ', I say ' + 'ok'
 
