@@ -83,10 +83,17 @@ def recast():
 #    print(json.loads(request.get_data()))
     return jsonify(
         status=200,
-        replies=[{
+        replies=
+        [
+            {
             'type': 'text',
-            'content': 'Roger that',
-        }],
+            'content': 'Roger that'
+            },
+            {
+                'type': 'text',
+                'content': 'but...'
+            }
+        ],
         conversation={
             'memory': {'key': 'value'}
         }
