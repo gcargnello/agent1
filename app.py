@@ -78,16 +78,18 @@ def slack():
 @app.route('/recast', methods=['POST'])
 def recast():
 
-#   req = request.get_json(silent=True, force=True)
+    r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
-    print(req)
+
+    print("Request:")
+    print(json.dumps(r1, indent=4))
 
 
-    s = req["source"]
+    s = req['source']
 
     print(s)
 
-    reply = 'you said ' + s
+    reply = 'you said ' + str(s)
 
     reply = reply + ', I say ' + 'ok'
 
