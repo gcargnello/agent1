@@ -28,7 +28,7 @@ def webhook():
 
     req = request.get_json(silent=True, force=True)
 
-#   Stampa il JSON di richiesta
+    #   Stampa il JSON di richiesta
     print("Request:")
     print(json.dumps(req, indent=4))
 
@@ -78,11 +78,10 @@ def slack():
 @app.route('/recast', methods=['POST'])
 def recast():
 
-    req = request.get_json(silent=True, force=True)
+#   req = request.get_json(silent=True, force=True)
+    req = json.loads(request.get_data())
+    print(req)
 
-    print("Request:")
-    jd = json.dumps(req, indent=4)
-    print(jd)
 
     s = req.get("language")
 
