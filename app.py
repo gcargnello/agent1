@@ -85,15 +85,9 @@ def recast():
     print("Request:")
     print(json.dumps(r1, indent=4))
 
-
     s = req['nlp']['source']
 
-    print(s)
-
-    reply = 'you said ' + str(s)
-
-    reply = reply + ', I say ' + 'ok'
-
+    reply = '.'
 
 #   print(json.loads(request.get_data()))
     return jsonify(
