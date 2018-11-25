@@ -122,7 +122,7 @@ def save_description():
     issue_description = s
     print('save_description')
     print(issue_description)
-    pickle.dump(issue_description,open('issuedesc.p','wb'))
+    pickle.dump( issue_description,open( "issuedesc.p","wb" ) )
     reply = 'ok, I got the description'
     time.sleep(3)
 
@@ -152,7 +152,7 @@ def get_description():
     print("Request:")
     print(json.dumps(r1, indent=4))
 
-    issue_description = pickle.load(open("issuedesc.p,","rb"))
+    issue_description = pickle.load( open( "issuedesc.p","rb" ) )
     reply = 'Your said that ' + issue_description
 
 
