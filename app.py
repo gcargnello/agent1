@@ -99,12 +99,7 @@ def recast():
         replies=
         [
             {
-                'type': 'text',
-                'content': reply
-            },
-
-            {
-                'type': 'image',
+                'type': 'picture',
                 'content': image
             }
         ],
