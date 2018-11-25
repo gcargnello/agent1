@@ -117,13 +117,10 @@ def save_description():
     r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
 
-    print("Request:")
-    print(json.dumps(r1, indent=4))
-
-
     s = req['nlp']['source']
     issue_description = s
-
+    print('save_description')
+    print(issue_description)
 
     return 0
 
@@ -138,8 +135,6 @@ def get_description():
     print("Request:")
     print(json.dumps(r1, indent=4))
 
-
-    s = req['nlp']['source']
     reply = 'Your description ' + issue_description
 
 
