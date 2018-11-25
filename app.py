@@ -20,7 +20,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h2>DialogFlow Agent<h2>"
+    return "<h2>DialogFlow/Recast.Ai Agent<h2>"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -120,7 +120,7 @@ def recast():
     return 0
 
 @app.route('/create_notification', methods=['POST'])
-def recast():
+def create_notification():
 
     r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
