@@ -13,6 +13,7 @@ from flask import make_response
 from flask import jsonify
 
 global machineAlert
+global issue_description
 machineAlert = '...'
 
 # Flask app should start in global layout..
@@ -88,6 +89,7 @@ def recast():
     s = req['nlp']['source']
 
     reply = '.'
+    issue_description = ''
 
 #   print(json.loads(request.get_data()))
     return jsonify(
@@ -111,6 +113,22 @@ def recast():
 
     return 0
 
+@app.route('/save_description', methods=['POST'])
+def save_description():
+
+    r1 = request.get_json(silent=True, force=True)
+    req = json.loads(request.get_data())
+
+    print("Request:")
+    print(json.dumps(r1, indent=4))
+
+
+    s = req['nlp']['source']
+    issue_description = s
+
+
+    return 0
+
 
 @app.route('/get_description', methods=['POST'])
 def get_description():
@@ -123,7 +141,7 @@ def get_description():
 
 
     s = req['nlp']['source']
-
+    reply = 'Your description ' + issue_description
 
 
 #   print(json.loads(request.get_data()))
@@ -131,11 +149,12 @@ def get_description():
         status=200,
         replies=
         [
+            {
+                'type': 'text',
+                'content': reply
+            }
 
-        ],
-        conversation={
-            'memory': {'issue_description': s}
-        }
+        ]
     )
 
     return 0
