@@ -111,6 +111,36 @@ def recast():
 
     return 0
 
+
+@app.route('/get_description', methods=['POST'])
+def get_description():
+
+    r1 = request.get_json(silent=True, force=True)
+    req = json.loads(request.get_data())
+
+    print("Request:")
+    print(json.dumps(r1, indent=4))
+
+
+    s = req['nlp']['source']
+
+
+
+#   print(json.loads(request.get_data()))
+    return jsonify(
+        status=200,
+        replies=
+        [
+
+        ],
+        conversation={
+            'memory': {'issue_description': s}
+        }
+    )
+
+    return 0
+
+
 @app.route('/create_notification', methods=['POST'])
 def create_notification():
 
