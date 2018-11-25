@@ -149,7 +149,7 @@ def recast():
             }
         ],
         conversation={
-            'memory': {'key': 'value'}
+            'memory': {'created': 'yes'}
         }
     )
 
