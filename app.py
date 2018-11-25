@@ -116,6 +116,7 @@ def recast():
 @app.route('/save_description', methods=['POST'])
 def save_description():
 
+    global issue_description
     r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
 
@@ -133,6 +134,7 @@ def save_description():
 @app.route('/get_description', methods=['POST'])
 def get_description():
 
+    global issue_description
     r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
 
