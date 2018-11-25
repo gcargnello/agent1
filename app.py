@@ -114,7 +114,6 @@ def recast():
 def save_description():
 
     global issue_description
-    r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
 
     s = req['nlp']['source']
@@ -122,7 +121,7 @@ def save_description():
     print('save_description')
     print(issue_description)
 
-    return 0
+    return
 
 
 @app.route('/get_description', methods=['POST'])
