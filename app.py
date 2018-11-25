@@ -119,6 +119,42 @@ def recast():
 
     return 0
 
+@app.route('/create_notification', methods=['POST'])
+def recast():
+
+    r1 = request.get_json(silent=True, force=True)
+    req = json.loads(request.get_data())
+
+    print("Request:")
+    print(json.dumps(r1, indent=4))
+
+
+    s = req['nlp']['source']
+
+    print(s)
+
+    reply = 'you said ' + str(s)
+
+    reply = reply + ', I say ' + 'ok'
+
+
+#   print(json.loads(request.get_data()))
+    return jsonify(
+        status=200,
+        replies=
+        [
+            {
+                'type': 'text',
+                'content': reply
+            }
+        ],
+        conversation={
+            'memory': {'key': 'value'}
+        }
+    )
+
+    return 0
+
 
 def makeWebhookResult(req):
 #   controllo della azione determinata dalla richiesta API.AI.
