@@ -134,7 +134,7 @@ def get_description():
     print("Request:")
     print(json.dumps(r1, indent=4))
 
-    reply = 'Your description ' + issue_description
+    reply = 'Your said that ' + issue_description
 
 
 #   print(json.loads(request.get_data()))
