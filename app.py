@@ -91,7 +91,8 @@ def recast():
 
     reply = '.'
     issue_description = ''
-    image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQav9X1mzK7qkfDWo1_ZcODCT_hFva2Uw6zt5j2SqbyCSU8AlhI'
+#    image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQav9X1mzK7qkfDWo1_ZcODCT_hFva2Uw6zt5j2SqbyCSU8AlhI'
+    image = 'https://drive.google.com/open?id=1AId4sPXXtgwAjpAudeFaHMd3ZVGUYFeu'
 
 #   print(json.loads(request.get_data()))
     return jsonify(
