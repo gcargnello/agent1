@@ -2,6 +2,7 @@
 import json
 import os
 import requests
+import random, time
 
 from  routines import getWitz, getCats, getTicketsbyCustomerStatusPrio, getTicketbyID, putTicket
 from  routines import sendEvent, getAlarm1, sendSlack
@@ -103,10 +104,7 @@ def recast():
                 'type': 'text',
                 'content': reply
             },
-            {
-                'type': 'text',
-                'content': '..that is all'
-            },
+
             {
                 'type': 'video',
                 'content': 'https://www.youtube.com/watch?v=SSlTnxC1MFg'
@@ -131,11 +129,9 @@ def create_notification():
 
     s = req['nlp']['source']
 
-    print(s)
-
-    reply = 'you said ' + str(s)
-
-    reply = reply + ', I say ' + 'ok'
+    time.sleep(3)
+    notification_id = random.radint(5006000,5007999)
+    reply = 'Notification '+ str(notification_id) + ' created'
 
 
 #   print(json.loads(request.get_data()))
