@@ -33,8 +33,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="94" column="79" lean-forward="false" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="79" />
+            <state relative-caret-position="251">
+              <caret line="124" column="1" lean-forward="true" selection-start-line="124" selection-start-column="1" selection-end-line="124" selection-end-column="17" />
               <folding>
                 <element signature="e#22#33#0" expanded="true" />
               </folding>
@@ -316,13 +316,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484607382880</updated>
-    </task>
-    <task id="LOCAL-00077" summary="update">
-      <created>1520198691401</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1520198691401</updated>
     </task>
     <task id="LOCAL-00078" summary="update">
       <created>1520199613233</created>
@@ -660,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543153355670</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="update">
+      <created>1543154367993</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1543154367993</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1197,8 +1197,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="94" column="79" lean-forward="false" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="79" />
+        <state relative-caret-position="251">
+          <caret line="124" column="1" lean-forward="true" selection-start-line="124" selection-start-column="1" selection-end-line="124" selection-end-column="17" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
           </folding>

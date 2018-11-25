@@ -122,6 +122,7 @@ def save_description():
     print('save_description')
     print(issue_description)
     reply = 'ok, I got the description'
+    time.sleep(3)
 
     #   print(json.loads(request.get_data()))
     return jsonify(
