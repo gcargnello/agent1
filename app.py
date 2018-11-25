@@ -80,6 +80,7 @@ def slack():
 @app.route('/recast', methods=['POST'])
 def recast():
 
+    global issue_description
     r1 = request.get_json(silent=True, force=True)
     req = json.loads(request.get_data())
 
@@ -90,6 +91,7 @@ def recast():
 
     reply = '.'
     issue_description = ''
+    image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQav9X1mzK7qkfDWo1_ZcODCT_hFva2Uw6zt5j2SqbyCSU8AlhI'
 
 #   print(json.loads(request.get_data()))
     return jsonify(
@@ -102,8 +104,8 @@ def recast():
             },
 
             {
-                'type': 'video',
-                'content': 'https://www.youtube.com/watch?v=SSlTnxC1MFg'
+                'type': 'image',
+                'content': image
             }
         ],
         conversation={
