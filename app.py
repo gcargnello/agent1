@@ -120,6 +120,20 @@ def save_description():
     issue_description = s
     print('save_description')
     print(issue_description)
+    reply = 'ok'
+
+    #   print(json.loads(request.get_data()))
+    return jsonify(
+        status=200,
+        replies=
+        [
+            {
+                'type': 'text',
+                'content': reply
+            }
+        ]
+        }
+    )
 
     return
 
