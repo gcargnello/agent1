@@ -21,7 +21,7 @@
       <file leaf-file-name="routines.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="240">
               <caret line="24" column="38" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="24" selection-end-column="38" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -34,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+              <caret line="133" column="48" lean-forward="true" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
               <folding>
                 <element signature="e#22#33#0" expanded="true" />
               </folding>
@@ -316,13 +316,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484607382880</updated>
-    </task>
-    <task id="LOCAL-00064" summary="update">
-      <created>1520195352107</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1520195352107</updated>
     </task>
     <task id="LOCAL-00065" summary="update">
       <created>1520195362233</created>
@@ -660,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543139215677</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="update">
+      <created>1543139379499</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1543139379499</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1187,7 +1187,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="240">
           <caret line="24" column="38" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="24" selection-end-column="38" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1198,7 +1198,7 @@
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+          <caret line="133" column="48" lean-forward="true" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
           </folding>
