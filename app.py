@@ -188,7 +188,7 @@ def create_notification():
 
     time.sleep(3)
     notification_id = str(random.randint(5006000,5007999))
-    reply = 'Notification '+ notification_id + ' created'
+    reply = 'Notification '+ notification_id + ' has been created'
 
 
 #   print(json.loads(request.get_data()))
