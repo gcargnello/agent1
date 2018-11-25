@@ -130,8 +130,8 @@ def create_notification():
     s = req['nlp']['source']
 
     time.sleep(3)
-    notification_id = random.radint(5006000,5007999)
-    reply = 'Notification '+ str(notification_id) + ' created'
+    notification_id = str(random.radint(5006000,5007999))
+    reply = 'Notification '+ notification_id + ' created'
 
 
 #   print(json.loads(request.get_data()))
@@ -145,7 +145,7 @@ def create_notification():
             }
         ],
         conversation={
-            'memory': {'created': 'yes'}
+            'memory': {'notification_id': notification_id}
         }
     )
 
