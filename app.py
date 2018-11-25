@@ -119,10 +119,11 @@ def save_description():
     req = json.loads(request.get_data())
 
     s = req['nlp']['source']
+    fn = 'id_'+ req['conversation']['id'] +'.p'
     issue_description = s
     print('save_description')
     print(issue_description)
-    pickle.dump( issue_description,open( "issuedesc.p","wb" ) )
+    pickle.dump( issue_description,open( fn,"wb" ) )
     reply = 'ok, I got the description'
     time.sleep(3)
 
@@ -152,7 +153,8 @@ def get_description():
     print("Request:")
     print(json.dumps(r1, indent=4))
 
-    issue_description = pickle.load( open( "issuedesc.p","rb" ) )
+    fn = 'id_' + req['conversation']['id'] + '.p'
+    issue_description = pickle.load( open( fn,"rb" ) )
     reply = 'Your said that ' + issue_description
 
 
